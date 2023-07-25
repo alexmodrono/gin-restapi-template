@@ -27,19 +27,19 @@
 
 The main key features include, but are not limited to:
 
-- 🫧**Clean Architecture**: The template embraces a modular and organized structure based on the principles of Clean Architecture. It leverages the power of `go-fx` for robust dependency injection, enhancing maintainability, scalability, and code reusability.
+- 🫧 **Clean Architecture**: The template embraces a modular and organized structure based on the principles of Clean Architecture. It leverages the power of `go-fx` for robust dependency injection, enhancing maintainability, scalability, and code reusability.
 
-- 🧭**Efficient Routing**: Utilizing the powerful routing capabilities of Gin, the template enables easy management of API endpoints, middleware, and request handling.
+- 🧭 **Efficient Routing**: Utilizing the powerful routing capabilities of Gin, the template enables easy management of API endpoints, middleware, and request handling.
 
-- 👷**Middleware Integration**: Built-in support for middleware such as authentication, logging, CORS, and more, allowing you to enhance your API's functionality and security with ease.
+- 👷 **Middleware Integration**: Built-in support for middleware such as authentication, logging, CORS, and more, allowing you to enhance your API's functionality and security with ease.
 
-- ❗️**Error Handling**: The template includes a comprehensive error handling mechanism, ensuring consistent and informative error responses for better client interaction and debugging.
+- ❗️ **Error Handling**: The template includes a comprehensive error handling mechanism, ensuring consistent and informative error responses for better client interaction and debugging.
 
-- 💾**Database Integration**: By leveraging the `pgx` driver, the template enables direct communication with PostgreSQL databases without the additional overhead and abstraction provided by an ORM. This approach provides more control and fine-grained optimization opportunities, allowing you to tailor the database interactions to the specific needs of your application.
+- 💾 **Database Integration**: By leveraging the `pgx` driver, the template enables direct communication with PostgreSQL databases without the additional overhead and abstraction provided by an ORM. This approach provides more control and fine-grained optimization opportunities, allowing you to tailor the database interactions to the specific needs of your application.
 
-- 🚦**Request Validation**: Implement request validation and data binding effortlessly by binding to DTOs, ensuring data integrity and security.
+- 🚦 **Request Validation**: Implement request validation and data binding effortlessly by binding to DTOs, ensuring data integrity and security.
 
-- 🧪**Testing Support**: The template encourages writing tests by providing a test-friendly structure, making it easier to verify the functionality and stability of your API.
+- 🧪 **Testing Support**: The template encourages writing tests by providing a test-friendly structure, making it easier to verify the functionality and stability of your API.
 
 Because of all the aforementioned reasons, by using this template you can expedite the development process of your next project as it allows you to focus on building your specific business logic while leveraging the proven architecture, routing, middleware, and other essential components provided.
 
@@ -100,7 +100,7 @@ While this template is very complete and is perfectly ready for anyone to use, t
 - [ ] Add integration tests
 - [ ] File upload middleware
 - [ ] Add documentation using Vite/Vuepress.
-- [f] Add Makefile for automatically running SQL queries.
+- [x] Add Makefile for automatically running SQL queries.
 - [x] Add custom SQL queries.
 
 ## Custom database queries
