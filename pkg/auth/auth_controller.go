@@ -43,6 +43,7 @@ import (
 )
 
 // ======== TYPES ========
+
 // AuthController struct
 type AuthController struct {
 	logger       *lib.Logger

@@ -41,12 +41,14 @@ import (
 )
 
 // ======== TYPES ========
+
 // AuthService service layer
 type AuthService struct {
 	db *lib.Database
 }
 
 // ======== METHODS ========
+
 // GetUserService returns the user service.
 func GetAuthService(logger *lib.Logger, db *lib.Database) interfaces.AuthService {
 	return AuthService{

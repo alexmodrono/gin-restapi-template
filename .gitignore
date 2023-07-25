@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/go,macos,dotenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,macos,dotenv
 
+bin/
+
 ### Dotenv ###
 configs/
 

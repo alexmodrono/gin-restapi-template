@@ -11,10 +11,16 @@
 <!-- Pages -->
 [overvw]: #project-overview-
 [motiv]: #motivation-
+[gs]: #get-started-
+[td]: #todo-list-
+[sql]: #custom-database-queries
 
 <!-- Links -->
 - [Project Overview 📋][overvw]
 - [Motivation 💪][motiv]
+- [Get Started 🏃‍♂️][gs]
+- [TODO list 📝][td]
+- [Custom database queries][sql]
 
 ## Project Overview 📋
 `alexmodrono/gin-restapi-template` is a comprehensive and well-structured starting point for developing RESTful APIs using the Gin framework. This template aims to streamline the initial setup and provide a foundation for building robust and scalable APIs with a clean architecture.
@@ -57,3 +63,65 @@ In terms of error handling, the template focuses on user-friendly messages and i
 Additionally, as I further iterated on the template, I incorporated more features that cater to various use cases and requirements, such as CORS, logging, user authentication and authorization, custom SQL query functions, among others.
 
 In conclusion, this custom REST API template for `golang` and `Gin` is designed to encompass a comprehensive set of features while maintaining simplicity and flexibility. By combining dependency injection, absence of ORM, data validation, standardized folder structure, user-friendly error handling, and various other functionalities, this template serves as a solid foundation for developing clean, efficient, and tailored APIs to suit your specific needs.
+
+## Getting Started 🏃‍♂️
+To get started, click on the `Use template` button on the top of this README, or simply clone this project using the following command:
+
+#### Using GitHub CLI
+```shell
+$ gh repo clone alexmodrono/gin-restapi-template
+```
+
+#### Using git
+```shell
+$ git clone https://github.com/alexmodrono/gin-restapi-template.git
+```
+
+Once you have cloned the repository, run `go mod tidy` to install the dependencies.
+
+```
+cd gin-restapi-template
+go mod tidy
+```
+
+### Running and building the project
+Since this template follows the Go folder structure convention, there is no `main.go` file. Instead, the entry point of this app is located at `cmd/gin-restapi-template`. Because of this, it is recommended you build and/or run the project using the Makefile provided as follows:
+
+```shell
+make build  # builds the project
+make run    # builds and runs the project
+make test   # runs the tests
+```
+
+## TODO List 📝
+While this template is very complete and is perfectly ready for anyone to use, there are still some features missing or that would be great to have implemented, among which are:
+
+- [ ] Add unit tests
+- [ ] Add integration tests
+- [ ] File upload middleware
+- [ ] Add documentation using Vite/Vuepress.
+- [f] Add Makefile for automatically running SQL queries.
+- [x] Add custom SQL queries.
+
+## Custom database queries
+In an effort to enhance the code's readability and maintainability, this template employs custom functions like `auth.get_user_by_id`, `auth.get_user_by_email`, and `auth.get_user_by_username` to streamline the length of queries. These functions abstract complex database operations, making the code more concise and organized.
+
+To incorporate these custom functions into your database, follow these steps:
+
+1. First, ensure you have PostgreSQL installed on your system.
+
+2. Locate the `create_query_functions.sql` file in the `sql` directory of this template.
+
+3. Open a terminal or command prompt and execute the following command, replacing `[DATABASE]` with the name of your PostgreSQL database and `[USER]` with the appropriate database user:
+
+   ```bash
+   $ psql [DATABASE] -U [USER] -f sql/create_query_functions.sql
+   ```
+
+   This command will run the SQL script and create the necessary functions in your database.
+
+Additionally, there is another essential file (`sql/create_users_table.sql`) for setting up the authentication schema and the `users` table.
+
+Before running any SQL scripts, it is essential to review the contents of the scripts and ensure they align with your specific database requirements. Also, make sure to take appropriate precautions and backups before making any changes to your database.
+
+By incorporating these custom functions and setting up the authentication schema, you can optimize your database interactions and improve the overall performance and maintainability of your application.
