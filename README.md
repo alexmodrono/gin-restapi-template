@@ -9,34 +9,12 @@
 ## Index
 
 <!-- Pages -->
-[motiv]: #motivation
-[qsp]: #quick-start-%EF%B8%8F
-[bfs]: #building-from-source
-[spm]: #through-swift-package-manager
-[usg]: #usage
-[bhttpr]: #basic-http-requests
-[bgr]: #basic-get-request-to-obtain-a-mastodon-account
-[ppr]: #passing-parameters
-[bpr]: #basic-post-request-to-register-an-application-in-an-instance
-[oauth]: #oauth
-[wcidwi]: #what-can-i-do-with-it
-[licensing]: #licensing
-[cntrbtn]: #contributions
+[overvw]: #project-overview-
+[motiv]: #motivation-
 
 <!-- Links -->
-- [Motivation][motiv]
-- [Quick Start 🏃‍♂️][qsp]
-    - [Building from source][bfs]
-    - [Through Swift Package Manager][spm]
-- [Usage][usg]
-    - [Basic HTTP requests][bhttpr]
-        - [Basic GET request to obtain a Mastodon account][bgr]
-            - [Passing parameters][ppr]
-        - [Basic POST request to register an application in an instance][bpr]
-    - [OAuth][oauth]
-- [What can I do with it?][wcidwi]
-- [Licensing][licensing]
-- [Contributions][cntrbtn]
+- [Project Overview 📋][overvw]
+- [Motivation 💪][motiv]
 
 ## Project Overview 📋
 `alexmodrono/gin-restapi-template` is a comprehensive and well-structured starting point for developing RESTful APIs using the Gin framework. This template aims to streamline the initial setup and provide a foundation for building robust and scalable APIs with a clean architecture.
