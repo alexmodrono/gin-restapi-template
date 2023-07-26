@@ -37,7 +37,7 @@ import "github.com/alexmodrono/gin-restapi-template/pkg/lib"
 
 // UserRoutes struct
 type AuthRoutes struct {
-	logger         *lib.Logger
+	logger         lib.Logger
 	router         *lib.Router
 	authController AuthController
 }
@@ -46,7 +46,7 @@ type AuthRoutes struct {
 
 // Returns an AuthRoutes struct.
 func SetAuthRoutes(
-	logger *lib.Logger,
+	logger lib.Logger,
 	router *lib.Router,
 	authController AuthController,
 ) AuthRoutes {

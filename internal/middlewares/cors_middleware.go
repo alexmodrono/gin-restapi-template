@@ -43,13 +43,13 @@ import (
 // CorsMiddleware middleware for cors
 type CorsMiddleware struct {
 	router *lib.Router
-	logger *lib.Logger
+	logger lib.Logger
 }
 
 // ======== PUBLIC METHODS ========
 
 // NewCorsMiddleware creates new cors middleware
-func GetCorsMiddleware(router *lib.Router, logger *lib.Logger) CorsMiddleware {
+func GetCorsMiddleware(router *lib.Router, logger lib.Logger) CorsMiddleware {
 	return CorsMiddleware{
 		router: router,
 		logger: logger,

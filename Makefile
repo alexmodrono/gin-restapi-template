@@ -4,5 +4,6 @@ build:
 run:
 	go run cmd/gin-restapi-template/main.go
 
+.PHONY: test
 test:
-	go test ./...
+	go test $(if $(VERBOSE),-v,) ./pkg/...

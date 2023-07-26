@@ -1,10 +1,10 @@
 /*
-Package Name: interfaces
-File Name: authservice_interface.go
-Abstract: Interface for the AuthService used for avoiding import/dependency cycles.
+Package Name: mocks
+File Name: auth_service_mock.go
+Abstract: Interface for mocking the auth service in tests.
 Author: Alejandro Modroño <alex@sureservice.es>
-Created: 07/22/2023
-Last Updated: 07/24/2023
+Created: 07/26/2023
+Last Updated: 07/26/2023
 
 # MIT License
 
@@ -28,16 +28,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package interfaces
+package mocks
 
-// ======== INTERFACES ========
+// Mock AuthService for testing purposes
+type MockAuthService struct{}
 
-// The interface for the AuthService.
-type AuthService interface {
-	// CheckToken checks whether a token is valid and returns the
-	// subject of the payload.
-	CheckToken(tokenString string) (*int32, error)
+func (s *MockAuthService) CreateToken(userID int32) (*string, error) {
+	// Mock the CreateToken method to return a test JWT token for testing.
+	// You can replace this with any logic to generate a mock JWT token for testing.
+	token := "mock_jwt_token"
+	return &token, nil
+}
 
-	// CreateToken return a token for a subject.
-	CreateToken(id int32) (*string, error)
+func (s *MockAuthService) CheckToken(tokenString string) (*int32, error) {
+	// Mock the CheckToken method to return the subject of the payload of a JWT
+	// for testing.
+	// You can replace this with any logic to generate a random ID for testing.
+	sub := int32(1)
+	return &sub, nil
 }

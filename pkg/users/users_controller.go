@@ -45,15 +45,15 @@ import (
 // UsersController data type
 type UsersController struct {
 	// service domains.UserService
-	logger  *lib.Logger
-	service UsersService
+	logger  lib.Logger
+	service UsersRepository
 }
 
 // ======== METHODS ========
 
 // Creates a new user controller and exposes its routes
 // to the router.
-func GetUsersController(logger *lib.Logger, service UsersService) UsersController {
+func GetUsersController(logger lib.Logger, service UsersRepository) UsersController {
 	return UsersController{
 		logger:  logger,
 		service: service,

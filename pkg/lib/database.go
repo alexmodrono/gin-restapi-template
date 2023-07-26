@@ -51,7 +51,7 @@ type Database = pgxpool.Pool
 // ======== METHODS ========
 
 // GetDatabase returns a database pool to connect to the database asynchronously
-func GetDatabase(logger *Logger) *Database {
+func GetDatabase(logger Logger) *Database {
 
 	url := fmt.Sprintf(
 		"postgres://%s:%s@%s:%s/%s",

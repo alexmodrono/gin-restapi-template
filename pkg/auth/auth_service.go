@@ -50,7 +50,7 @@ type AuthService struct {
 // ======== METHODS ========
 
 // GetUserService returns the user service.
-func GetAuthService(logger *lib.Logger, db *lib.Database) interfaces.AuthService {
+func GetAuthService(db *lib.Database) interfaces.AuthService {
 	return AuthService{
 		db: db,
 	}

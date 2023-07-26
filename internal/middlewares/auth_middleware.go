@@ -46,14 +46,14 @@ import (
 // AuthMiddleware middleware for authentication
 type AuthMiddleware struct {
 	service interfaces.AuthService
-	logger  *lib.Logger
+	logger  lib.Logger
 }
 
 // ======== PUBLIC METHODS ========
 
 // GetAuthMiddleware returns the auth middleware
 func GetAuthMiddleware(
-	logger *lib.Logger,
+	logger lib.Logger,
 	service interfaces.AuthService,
 ) AuthMiddleware {
 	return AuthMiddleware{

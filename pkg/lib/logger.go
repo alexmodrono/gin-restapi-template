@@ -39,13 +39,16 @@ import (
 
 // ======== TYPES ========
 
-// The logger used in the API
-type Logger struct {
-	*log.Logger
+// loggerInterface represents the logging functionality used in the code.
+// This is done to enable mocking the logger in tests.
+type Logger interface {
+	Info(args ...interface{})
+	Fatal(args ...interface{})
+	Error(args ...interface{})
 }
 
 // NewHandler returns a new gin router
-func GetLogger() *Logger {
+func GetLogger() Logger {
 	logger := log.New(os.Stderr)
-	return &Logger{logger}
+	return logger
 }

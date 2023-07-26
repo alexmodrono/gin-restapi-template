@@ -46,14 +46,14 @@ import (
 
 // UsersService service layer
 type UsersService struct {
-	logger *lib.Logger
+	logger lib.Logger
 	db     *lib.Database
 }
 
 // ======== PUBLIC METHODS ========
 
 // GetUsersService returns the user service.
-func GetUsersService(logger *lib.Logger, db *lib.Database) UsersService {
+func GetUsersService(logger lib.Logger, db *lib.Database) UsersRepository {
 	return UsersService{
 		logger: logger,
 		db:     db,

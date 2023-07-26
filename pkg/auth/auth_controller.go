@@ -46,9 +46,9 @@ import (
 
 // AuthController struct
 type AuthController struct {
-	logger       *lib.Logger
+	logger       lib.Logger
 	service      interfaces.AuthService
-	usersService users.UsersService
+	usersService users.UsersRepository
 }
 
 type LoginBody struct {
@@ -67,9 +67,9 @@ type SignupBody struct {
 
 // GetAuthController retrieves a new auth controller.
 func GetAuthController(
-	logger *lib.Logger,
+	logger lib.Logger,
 	service interfaces.AuthService,
-	usersService users.UsersService,
+	usersService users.UsersRepository,
 ) AuthController {
 	return AuthController{
 		logger:       logger,

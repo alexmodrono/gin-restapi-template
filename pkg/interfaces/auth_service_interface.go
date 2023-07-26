@@ -1,10 +1,10 @@
 /*
-Package Name: users
-File Name: users_routes.go
-Abstract: The file containing all the user routes.
-
+Package Name: interfaces
+File Name: auth_service_interface.go
+Abstract: Interface for the AuthService used for avoiding import/dependency cycles
+and allowing to mock these services in tests.
 Author: Alejandro Modroño <alex@sureservice.es>
-Created: 07/08/2023
+Created: 07/22/2023
 Last Updated: 07/24/2023
 
 # MIT License
@@ -29,46 +29,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package users
+package interfaces
 
-import (
-	"github.com/alexmodrono/gin-restapi-template/internal/middlewares"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
-)
+// ======== INTERFACES ========
 
-// ======== TYPES ========
+// The interface for the AuthService.
+type AuthService interface {
+	// CheckToken checks whether a token is valid and returns the
+	// subject of the payload.
+	CheckToken(tokenString string) (*int32, error)
 
-// UsersRoutes struct
-type UsersRoutes struct {
-	logger          lib.Logger
-	router          *lib.Router
-	usersController UsersController
-	authMiddleware  middlewares.AuthMiddleware
-}
-
-// ======== PUBLIC METHODS ========
-
-// Returns a UserRoutes struct.
-func SetUsersRoutes(
-	logger lib.Logger,
-	router *lib.Router,
-	usersController UsersController,
-	authMiddleware middlewares.AuthMiddleware,
-) UsersRoutes {
-	return UsersRoutes{
-		logger:          logger,
-		router:          router,
-		usersController: usersController,
-		authMiddleware:  authMiddleware,
-	}
-}
-
-// Setup the user routes
-func (route UsersRoutes) Setup() {
-	route.logger.Info("Setting up [USERS] routes.")
-	api := route.router.Group("/users").Use(route.authMiddleware.Handler())
-	{
-		api.GET("/", route.usersController.GetAll)
-		api.GET("/:id", route.usersController.Get)
-	}
+	// CreateToken return a token for a subject.
+	CreateToken(id int32) (*string, error)
 }

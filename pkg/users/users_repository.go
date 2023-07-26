@@ -1,11 +1,11 @@
 /*
 Package Name: users
-File Name: users_routes.go
-Abstract: The file containing all the user routes.
-
+File Name: users_repository.go
+Abstract: Interface for the UsersService used for avoiding import/dependency cycles
+and allowing to mock these services in tests.
 Author: Alejandro Modroño <alex@sureservice.es>
-Created: 07/08/2023
-Last Updated: 07/24/2023
+Created: 07/26/2023
+Last Updated: 07/26/2023
 
 # MIT License
 
@@ -31,44 +31,15 @@ SOFTWARE.
 */
 package users
 
-import (
-	"github.com/alexmodrono/gin-restapi-template/internal/middlewares"
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
-)
+// ======== INTERFACES ========
 
-// ======== TYPES ========
+// The interface for the AuthService.
+type UsersRepository interface {
+	GetUserById(id int) (*InternalUser, error)
 
-// UsersRoutes struct
-type UsersRoutes struct {
-	logger          lib.Logger
-	router          *lib.Router
-	usersController UsersController
-	authMiddleware  middlewares.AuthMiddleware
-}
+	GetUserByEmail(email string) (*InternalUser, error)
 
-// ======== PUBLIC METHODS ========
+	GetUsers() (users []InternalUser, err error)
 
-// Returns a UserRoutes struct.
-func SetUsersRoutes(
-	logger lib.Logger,
-	router *lib.Router,
-	usersController UsersController,
-	authMiddleware middlewares.AuthMiddleware,
-) UsersRoutes {
-	return UsersRoutes{
-		logger:          logger,
-		router:          router,
-		usersController: usersController,
-		authMiddleware:  authMiddleware,
-	}
-}
-
-// Setup the user routes
-func (route UsersRoutes) Setup() {
-	route.logger.Info("Setting up [USERS] routes.")
-	api := route.router.Group("/users").Use(route.authMiddleware.Handler())
-	{
-		api.GET("/", route.usersController.GetAll)
-		api.GET("/:id", route.usersController.Get)
-	}
+	CreateUser(email string, username string, password string) (*int32, error)
 }

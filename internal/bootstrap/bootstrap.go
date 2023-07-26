@@ -52,7 +52,7 @@ import (
 func registerHooks(
 	lifecycle fx.Lifecycle,
 	router *lib.Router,
-	logger *lib.Logger,
+	logger lib.Logger,
 	routes Routes,
 	middlewares middlewares.Middlewares,
 ) {

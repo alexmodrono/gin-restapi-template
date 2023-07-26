@@ -1,11 +1,10 @@
 /*
-Package Name: middlewares
-File Name: errors_middleware.go
-Abstract: The error middleware for better error handling.
-
+Package Name: mocks
+File Name: logger_mock.go
+Abstract: Interface for mocking the logger in tests.
 Author: Alejandro Modroño <alex@sureservice.es>
-Created: 07/12/2023
-Last Updated: 07/24/2023
+Created: 07/26/2023
+Last Updated: 07/26/2023
 
 # MIT License
 
@@ -29,45 +28,29 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-package middlewares
+package mocks
 
-import (
-	"github.com/alexmodrono/gin-restapi-template/pkg/lib"
-	"github.com/gin-gonic/gin"
-)
-
-// ======== TYPES ========
-
-// AuthMiddleware middleware for authentication
-type ErrorsMiddleware struct {
-	logger lib.Logger
-	router *lib.Router
+// MockLogger is a mock implementation of the Logger interface for testing purposes.
+type MockLogger struct {
+	// Add fields or methods here if needed for capturing log messages or other testing purposes.
 }
 
-// ======== PUBLIC METHODS ========
-
-// GetAuthMiddleware returns the auth middleware
-func GetErrorsMiddleware(
-	logger lib.Logger,
-	router *lib.Router,
-) ErrorsMiddleware {
-	return ErrorsMiddleware{
-		logger: logger,
-		router: router,
-	}
+// Info is the mocked Info method for testing.
+func (m *MockLogger) Info(args ...interface{}) {
+	// Implement the logic to capture log messages or perform testing actions.
 }
 
-// Setup sets up errors middleware
-func (middleware ErrorsMiddleware) Setup() {
-	middleware.logger.Info("Setting up [ERRORS] middleware")
-	middleware.router.Use(func(ctx *gin.Context) {
-		ctx.Next()
+// Fatal is the mocked Fatal method for testing.
+func (m *MockLogger) Fatal(args ...interface{}) {
+	// Implement the logic to capture log messages or perform testing actions.
+}
 
-		// if any of the routes abort with an error, it
-		// will be catched here and displayed to the user.
-		for _, err := range ctx.Errors {
-			middleware.logger.Error("An error ocurred:", err)
-			ctx.JSON(-1, err)
-		}
-	})
+// Error is the mocked Error method for testing.
+func (m *MockLogger) Error(args ...interface{}) {
+	// Implement the logic to capture log messages or perform testing actions.
+}
+
+// NewMockLogger returns a new instance of the MockLogger.
+func NewMockLogger() *MockLogger {
+	return &MockLogger{}
 }
